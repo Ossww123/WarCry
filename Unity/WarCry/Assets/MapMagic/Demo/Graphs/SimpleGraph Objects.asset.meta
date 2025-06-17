@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b751b873785309b4cb850a4975785131
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 165181
+  packageName: MapMagic 2 Objects
+  packageVersion: 2.1.17
+  assetPath: Assets/MapMagic/Demo/Graphs/SimpleGraph Objects.asset
+  uploadId: 683297

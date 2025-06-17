@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 25300607f3794266b342abc0d031f61b
+timeCreated: 1585474988
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/MapMagic2/Generators/Other/BoundsGenerator.cs
+  uploadId: 627855

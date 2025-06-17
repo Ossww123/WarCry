@@ -1,0 +1,155 @@
+/* src/index.css - 기존 코드 유지하며 CSS 변수 추가 */
+:root {
+  /* 기본 색상 */
+  --background: #1A1A2E;
+  --foreground: #F8F8F8;
+  --foreground-light: #CCCCCC;
+  --foreground-lighter: #AAAAAA;
+  
+  /* 티어 색상 */
+  --tier-1: #FFD700; /* 1티어 (골드) */
+  --tier-2: #E5E4E2; /* 2티어 (실버) */
+  --tier-3: #CD7F32; /* 3티어 (브론즈) */
+  --tier-4: #43464B; /* 4티어 (아이언) */
+  
+  /* 액센트 색상 */
+  --accent: #FF4500;
+  --accent-light: rgba(255, 69, 0, 0.8);
+  
+  /* 결과 색상 */
+  --win: rgba(0, 255, 127, 1);
+  --win-light: rgba(0, 255, 127, 0.2);
+  --lose: rgba(255, 69, 0, 1);
+  --lose-light: rgba(255, 69, 0, 0.2);
+  
+  /* 배경 색상 */
+  --bg-dark: rgba(0, 0, 0, 0.3);
+  --bg-darker: rgba(0, 0, 0, 0.5);
+  --bg-light: rgba(255, 255, 255, 0.1);
+  
+  /* 경계선 색상 */
+  --border-light: rgba(255, 255, 255, 0.2);
+  --border-dark: rgba(0, 0, 0, 0.2);
+  
+  /* 그림자 */
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  
+  /* 애니메이션 */
+  --transition-speed: 0.2s;
+  
+  /* 배치 */
+  --border-radius: 8px;
+  --container-max-width: 1200px;
+  --spacing-small: 0.5rem;
+  --spacing-medium: 1rem;
+  --spacing-large: 2rem;
+  
+  /* 미디어 쿼리 브레이크포인트 */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+
+/* 기존 body 스타일 유지 */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 기존 커서 관련 설정 유지 */
+  cursor: none !important;
+  /* 배경색과 글자색을 CSS 변수로 설정 */
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* 기존 커서 관련 설정 유지 */
+a,
+button,
+button[type="submit"],
+input,
+textarea,
+select,
+label {
+  cursor: none !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* 공통 컨테이너 스타일 추가 */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--spacing-large);
+}
+
+/* 반응형 컨테이너 */
+@media (max-width: 992px) {
+  .container {
+    padding: var(--spacing-medium);
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: var(--spacing-small);
+  }
+}
+
+/* 공통 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* 접근성 개선 */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* 스크린 리더용 텍스트 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

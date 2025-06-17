@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: c0379d45df734b24b49e0a32f842b72c
+timeCreated: 1604770421
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/MapMagic2/Util/ReadOnlyTileData.cs
+  uploadId: 627855

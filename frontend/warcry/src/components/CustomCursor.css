@@ -1,0 +1,31 @@
+/* src/components/CustomCursor.css */
+
+.cursor {
+    position: fixed;
+    width: 48px;
+    height: 48px;
+    background: url("../assets/cursor.png") no-repeat center center;
+    background-size: contain;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+  }
+  
+  @keyframes stab {
+    0% {
+      transform: translate(-50%, -50%) translate(0, 0);
+    }
+    50% {
+      /* 10시 방향으로 살짝만 찌르기 */
+      transform: translate(-50%, -50%) translate(-10px, -10px);
+    }
+    100% {
+      transform: translate(-50%, -50%) translate(0, 0);
+    }
+  }
+  
+  .cursor--slash {
+    /* 속도를 조금 줄여 0.3초 동안 부드럽게 */
+    animation: stab 0.3s ease-in-out forwards;
+  }
+  

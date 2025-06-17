@@ -1,0 +1,54 @@
+/* src/components/common/Pagination.css */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  gap: 0.5rem;
+}
+
+.page-button {
+  min-width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f8f8f8;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-button:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.page-button.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #fff;
+  font-weight: bold;
+}
+
+.page-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-button.first,
+.page-button.prev,
+.page-button.next,
+.page-button.last {
+  font-weight: bold;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .page-button {
+    min-width: 2rem;
+    height: 2rem;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 0c5b7d58b479484e97a011067e493e2e
+timeCreated: 1587751941
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/MapMagic2/Generators/Spline/CutWaterCrossingEdgesGenerator.cs
+  uploadId: 627855

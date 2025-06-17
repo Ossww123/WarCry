@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  mirror-7777:
+    build:
+      context: .           # 루트 컨텍스트
+      dockerfile: Dockerfile
+      args:
+        PORT: 7777
+    image: mirror-7777:latest
+    ports:
+      - "7777:7777/udp"
+      - "7777:7777/tcp"
+
+  mirror-7778:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PORT: 7778
+    image: mirror-7778:latest
+    ports:
+      - "7778:7778/udp"
+      - "7778:7778/tcp"
+
+  mirror-7779:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PORT: 7779
+    image: mirror-7779:latest
+    ports:
+      - "7779:7779/udp"
+      - "7779:7779/tcp"

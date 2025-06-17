@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 02b019df71294976ad920525d7634ab2
+timeCreated: 1586110753
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/MapMagic2/Util/ClampedFloat.cs
+  uploadId: 627855

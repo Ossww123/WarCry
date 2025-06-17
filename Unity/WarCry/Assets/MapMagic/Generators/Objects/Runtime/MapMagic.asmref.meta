@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ab94f803719d7d847a9ef1a2869c9b86
+AssemblyDefinitionReferenceImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 165181
+  packageName: MapMagic 2 Objects
+  packageVersion: 2.1.17
+  assetPath: Assets/MapMagic/Generators/Objects/Runtime/MapMagic.asmref
+  uploadId: 683297

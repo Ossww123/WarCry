@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: bbe87fdccc664fd9af218b9ba49d2c8d
+timeCreated: 1587289588
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/MapMagic2/Generators/Map/PathCarveGenerator.cs
+  uploadId: 627855

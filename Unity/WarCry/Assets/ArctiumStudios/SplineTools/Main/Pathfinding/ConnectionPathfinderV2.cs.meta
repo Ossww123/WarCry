@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 8280990cee0644639bedbc45d1afbdc1
+timeCreated: 1584115450
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/Main/Pathfinding/ConnectionPathfinderV2.cs
+  uploadId: 627855

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 9a0c179ce6ec71743a0a059fd591082e
+timeCreated: 1564129855
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/Editor/SplineToolsIntegrationsManager.cs
+  uploadId: 627855

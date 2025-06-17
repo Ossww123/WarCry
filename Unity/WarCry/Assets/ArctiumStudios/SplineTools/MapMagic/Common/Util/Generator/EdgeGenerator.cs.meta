@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 7b198a37228942629b8c0c87cbf9afdf
+timeCreated: 1588791134
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/Common/Util/Generator/EdgeGenerator.cs
+  uploadId: 627855

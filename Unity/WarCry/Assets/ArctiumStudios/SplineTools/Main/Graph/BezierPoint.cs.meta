@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: a407f72ec9ee49749b1f290eacd13a53
+timeCreated: 1567852186
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/Main/Graph/BezierPoint.cs
+  uploadId: 627855

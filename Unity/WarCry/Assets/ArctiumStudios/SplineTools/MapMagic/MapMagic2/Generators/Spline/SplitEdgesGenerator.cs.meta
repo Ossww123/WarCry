@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 819e8b1073cf4afc9ca3ce55596a3fb0
+timeCreated: 1587751941
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/MapMagic2/Generators/Spline/SplitEdgesGenerator.cs
+  uploadId: 627855

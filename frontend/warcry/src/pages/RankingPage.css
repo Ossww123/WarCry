@@ -1,0 +1,41 @@
+/* src/pages/RankingPage.css */
+.ranking-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ranking-page h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 로딩 및 에러 상태 스타일 */
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #ff4500;
+}
+
+/* 임시 placeholder 영역 스타일 */
+.tier-pyramid-placeholder,
+.user-distribution-placeholder,
+.tier-filter-placeholder,
+.leaderboard-placeholder {
+  border: 2px dashed #555;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .ranking-page {
+    padding: 1rem;
+  }
+}

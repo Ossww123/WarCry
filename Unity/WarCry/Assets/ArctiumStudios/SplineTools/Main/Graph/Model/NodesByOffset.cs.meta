@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 707d6b67116b479ca60f7175a737ebfb
+timeCreated: 1645279317
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/Main/Graph/Model/NodesByOffset.cs
+  uploadId: 627855

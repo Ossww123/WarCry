@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 1593aeccaf203d542824cf03f714ed75
+timeCreated: 1539891687
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 165181
+  packageName: MapMagic 2 Objects
+  packageVersion: 2.1.17
+  assetPath: Assets/MapMagic/Generators/Objects/Runtime/ObjectsInitial.cs
+  uploadId: 683297

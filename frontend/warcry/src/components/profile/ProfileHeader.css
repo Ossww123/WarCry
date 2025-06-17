@@ -1,0 +1,139 @@
+/* src/components/profile/ProfileHeader.css */
+.profile-header {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  --tier-color: #CCCCCC; /* 기본값, JS에서 변경됨 */
+}
+
+.profile-header.skeleton {
+  height: 250px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.2) 25%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.2) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.back-link {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.profile-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--tier-color);
+}
+
+.tier-badge {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 2px solid var(--tier-color);
+}
+
+.tier-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--tier-color);
+}
+
+.tier-points {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.tier-progress-container {
+  max-width: 400px;
+  margin: 0 auto 1.5rem auto;
+}
+
+.tier-progress-bar {
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.tier-progress-fill {
+  height: 100%;
+  background-color: var(--tier-color);
+  border-radius: 4px;
+}
+
+.tier-progress-text {
+  font-size: 0.9rem;
+  color: #ccc;
+  text-align: right;
+}
+
+.rank-info {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.rank-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rank-label {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 0.3rem;
+}
+
+.rank-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f8f8f8;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .profile-header {
+    padding: 1.5rem 1rem;
+  }
+  
+  .profile-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .rank-info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .tier-progress-container {
+    max-width: 100%;
+  }
+}

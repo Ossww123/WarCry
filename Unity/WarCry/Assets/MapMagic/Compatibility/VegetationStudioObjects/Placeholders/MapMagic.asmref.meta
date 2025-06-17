@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 608f80df3f37b234ebea8462cfc3f9f0
+AssemblyDefinitionReferenceImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 165181
+  packageName: MapMagic 2 Objects
+  packageVersion: 2.1.17
+  assetPath: Assets/MapMagic/Compatibility/VegetationStudioObjects/Placeholders/MapMagic.asmref
+  uploadId: 683297

@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: warcry_container
+    image: warcry_image
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=${DB_PROD_URL}
+      - SPRING_DATASOURCE_USERNAME=${DB_PROD_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PROD_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+    depends_on:
+      - postgres
+    command: ["java", "-jar", "/warcry.jar"]
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_DB: warcry
+      POSTGRES_USER: ${DB_PROD_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PROD_PASSWORD}
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    privileged: true
+    user: root
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    ports:
+      - "18080:8080"
+      - "50000:50000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./jenkins_home:/var/jenkins_home
+      - /usr/bin/docker:/usr/bin/docker
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

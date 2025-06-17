@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: d5464f863e204fa694bca62516951e79
+timeCreated: 1635873531
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/Common/Util/Generator/Output/RamSplineHelper.cs
+  uploadId: 627855

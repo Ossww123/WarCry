@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: f073a6e4151e41cba11b0597d0382d98
+timeCreated: 1643976918
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/MapMagic2/Generators/Biome/BiomeHeightSyncReferenceGenerator.cs
+  uploadId: 627855

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a6c2bf31cb37aaa408d48374718d5a40
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 165181
+  packageName: MapMagic 2 Objects
+  packageVersion: 2.1.17
+  assetPath: Assets/MapMagic/Demo/Compatibility/MicroSplat/microsplat_layer_Cliff_dark_1.terrainlayer
+  uploadId: 683297

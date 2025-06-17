@@ -1,0 +1,122 @@
+/* src/components/ranks/LeaderboardTable.css */
+.leaderboard-table-wrapper {
+  margin-bottom: 2rem;
+}
+
+.leaderboard-table-wrapper h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 1rem;
+  text-align: center;
+}
+
+.leaderboard-table th {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #f8f8f8;
+  font-weight: 600;
+}
+
+.leaderboard-table tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.leaderboard-table tr:last-child {
+  border-bottom: none;
+}
+
+.leaderboard-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+}
+
+.rank-badge.top-1 {
+  background-color: #FFD700;
+  color: #000;
+}
+
+.rank-badge.top-2 {
+  background-color: #E5E4E2;
+  color: #000;
+}
+
+.rank-badge.top-3 {
+  background-color: #CD7F32;
+  color: #000;
+}
+
+.player-name {
+  color: #f8f8f8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.player-name:hover {
+  text-decoration: underline;
+}
+
+.tier-badge {
+  --tier-color: #CCCCCC; /* 기본값, JS에서 변경됨 */
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--tier-color);
+  color: var(--tier-color);
+  font-size: 0.9rem;
+}
+
+.no-data {
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .rank-badge {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* src/components/ranks/LeaderboardTable.css 에 추가 */
+.table-info {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+}

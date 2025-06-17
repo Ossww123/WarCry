@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: feb8d329ef9e4df7985e19e01f20b735
+timeCreated: 1645292520
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/MapMagic2/Generators/Biome/BiomeNodesExit.cs
+  uploadId: 627855

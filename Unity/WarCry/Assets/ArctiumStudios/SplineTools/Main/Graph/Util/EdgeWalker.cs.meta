@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 319d55ee33614dc2afdcd548b0f9989d
+timeCreated: 1568904330
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/Main/Graph/Util/EdgeWalker.cs
+  uploadId: 627855

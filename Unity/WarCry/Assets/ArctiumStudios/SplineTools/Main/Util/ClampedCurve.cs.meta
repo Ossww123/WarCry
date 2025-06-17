@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 23ecdc42f86c4f13b66f46d45a14a565
+timeCreated: 1577093618
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/Main/Util/ClampedCurve.cs
+  uploadId: 627855

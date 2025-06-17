@@ -1,0 +1,200 @@
+/* src/components/profile/MatchHistory.css */
+.match-history {
+  margin-bottom: 2rem;
+}
+
+.match-history.skeleton {
+  height: 400px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.2) 25%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.2) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+.match-history h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.no-matches {
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+.match-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.match-item {
+  display: grid;
+  grid-template-columns: 1fr 80px 2fr 1fr 80px;
+  align-items: center;
+  padding: 1.25rem;
+  border-radius: 8px;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.match-item:hover {
+  transform: translateY(-3px);
+}
+
+.match-item.win {
+  background-color: rgba(0, 255, 127, 0.1);
+  border-left: 4px solid rgba(0, 255, 127, 0.7);
+}
+
+.match-item.lose {
+  background-color: rgba(255, 69, 0, 0.1);
+  border-left: 4px solid rgba(255, 69, 0, 0.7);
+}
+
+.match-date {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.result-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.win .result-badge {
+  background-color: rgba(0, 255, 127, 0.2);
+  color: rgba(0, 255, 127, 1);
+}
+
+.lose .result-badge {
+  background-color: rgba(255, 69, 0, 0.2);
+  color: rgba(255, 69, 0, 1);
+}
+
+.match-opponent {
+  display: flex;
+  flex-direction: column;
+}
+
+.opponent-label {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-bottom: 0.2rem;
+}
+
+.opponent-name {
+  color: #f8f8f8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.opponent-name:hover {
+  text-decoration: underline;
+}
+
+.match-points {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.points-change {
+  margin-bottom: 0.2rem;
+}
+
+.change-value {
+  font-weight: bold;
+}
+
+.change-value.positive {
+  color: rgba(0, 255, 127, 1);
+}
+
+.change-value.negative {
+  color: rgba(255, 69, 0, 1);
+}
+
+.points-after {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.tier-change {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.promotion {
+  color: rgba(0, 255, 127, 1);
+}
+
+.demotion {
+  color: rgba(255, 69, 0, 1);
+}
+
+.view-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.view-more-button {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f8f8f8;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.view-more-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 992px) {
+  .match-item {
+    grid-template-columns: 1fr 80px 1.5fr 1fr;
+    gap: 1rem;
+  }
+  
+  .match-date {
+    grid-column: 1 / 5;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .match-item {
+    grid-template-columns: 80px 1fr 80px;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .match-date {
+    grid-column: 1 / 4;
+    text-align: center;
+  }
+  
+  .match-opponent {
+    align-items: center;
+  }
+  
+  .match-points {
+    align-items: center;
+  }
+}

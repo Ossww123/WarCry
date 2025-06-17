@@ -1,0 +1,5 @@
+/* src/pages/SignupPage.css */
+@import './LoginPage.css'; /* 기본 스타일 재사용 */
+.avail-msg { margin-top: 5px; font-size: 0.9rem; }
+.avail-msg.ok { color: #6bcB77; }
+.avail-msg.no { color: #ff6b6b; }

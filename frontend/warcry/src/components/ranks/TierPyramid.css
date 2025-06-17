@@ -1,0 +1,89 @@
+/* src/components/ranks/TierPyramid.css */
+.tier-pyramid {
+  margin-bottom: 2rem;
+}
+
+.tier-pyramid h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.pyramid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tier-block {
+  --tier-color: #CCCCCC; /* 기본값, 각 티어별로 변경됨 */
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--tier-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.tier-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tier-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--tier-color);
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.tier-content {
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.tier-block h3 {
+  color: var(--tier-color);
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.tier-block p {
+  margin: 0;
+  color: #ccc;
+}
+
+/* 티어별 너비 조정 (피라미드 형태) */
+.tier-1 {
+  width: 60%;
+}
+
+.tier-2 {
+  width: 70%;
+}
+
+.tier-3 {
+  width: 85%;
+}
+
+.tier-4 {
+  width: 100%;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .tier-block {
+    width: 100% !important; /* 모든 티어 블록을 동일한 너비로 */
+  }
+}

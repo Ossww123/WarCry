@@ -1,0 +1,125 @@
+pipeline {
+    agent any
+
+    environment {
+        NODEJS_VERSION        = 'NodeJS-LTS'
+        REACT_APP_PATH        = 'frontend/warcry'
+        BUILD_OUTPUT_PATH     = 'frontend/warcry/build'
+        EC2_DEPLOY_PATH       = '/var/www/k12d104-frontend'
+        GITLAB_CREDENTIALS_ID = 'GITLAB_PAT'
+        EC2_SSH_CONFIG_NAME   = 'EC2-FRONT'
+    }
+
+    tools {
+        nodejs "${NODEJS_VERSION}"
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                echo 'Cloning the frontend repository with Git LFS support...'
+                // GitSCM + GitLFSPull extension 사용
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[ name: 'refs/heads/frontend' ]],
+                    extensions: [
+                        // LFS 파일 자동 pull
+                        [ $class: 'GitLFSPull' ],
+                        // 필요시 clone timeout 조정 (기본 10분)
+                        [ $class: 'CloneOption', noTags: false, shallow: false, timeout: 20 ]
+                    ],
+                    userRemoteConfigs: [[
+                        url: "https://lab.ssafy.com/s12-final/S12P31D104.git",
+                        credentialsId: env.GITLAB_CREDENTIALS_ID
+                    ]]
+                ])
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                dir(env.REACT_APP_PATH) {
+                    echo "Installing dependencies in ${pwd()}..."
+                    sh 'npm install'
+                }
+            }
+        }
+
+        stage('Build React App') {
+            steps {
+                dir(env.REACT_APP_PATH) {
+                    echo "Building React app in ${pwd()}..."
+                    sh 'npm run build'
+                    echo "Build completed. Checking output in ${pwd()}/build:"
+                    sh 'ls -al build'
+                }
+            }
+        }
+
+        stage('Transfer to EC2') {
+            steps {
+                echo '--- [DEBUG] Verifying source files before transfer ---'
+                echo "Jenkins Workspace: ${env.WORKSPACE}"
+                echo "BUILD_OUTPUT_PATH (relative to workspace): ${env.BUILD_OUTPUT_PATH}"
+                sh "ls -Rla ${env.WORKSPACE}/${env.BUILD_OUTPUT_PATH}"
+                echo '--- [DEBUG] End of source file verification ---'
+
+                echo "Transferring build files to EC2: ${env.EC2_DEPLOY_PATH}"
+                sshPublisher(publishers: [
+                    sshPublisherDesc(
+                        configName: env.EC2_SSH_CONFIG_NAME,
+                        transfers: [
+                            sshTransfer(
+                                execCommand: "mkdir -p ${env.EC2_DEPLOY_PATH}",
+                                execTimeout: 120000
+                            ),
+                            sshTransfer(
+                                execCommand: "rm -rf ${env.EC2_DEPLOY_PATH}/*",
+                                execTimeout: 120000
+                            ),
+                            sshTransfer(
+                                sourceFiles: "${env.BUILD_OUTPUT_PATH}/**/*",
+                                removePrefix: env.BUILD_OUTPUT_PATH,
+                                remoteDirectory: "${env.EC2_DEPLOY_PATH}",
+                                execTimeout: 120000
+                            )
+                        ],
+                        verbose: true
+                    )
+                ])
+                echo 'Frontend deployment to EC2 complete.'
+            }
+        }
+    }
+
+    post {
+        success {
+            script {
+                def Author_ID = sh(
+                    script: "git show -s --pretty=%an",
+                    returnStdout: true
+                ).trim()
+                mattermostSend(
+                    color: 'good',
+                    message: "Frontend 빌드 성공!: ${env.JOB_NAME} #${env.BUILD_NUMBER} by ${Author_ID}\n(<${env.BUILD_URL}|Details>)",
+                    endpoint: 'https://meeting.ssafy.com/hooks/31rxdtq1tbr49qz1bxmc4quede',
+                    channel: 'game_jenkins'
+                )
+            }
+        }
+        failure {
+            script {
+                def Author_ID = sh(
+                    script: "git show -s --pretty=%an",
+                    returnStdout: true
+                ).trim()
+                mattermostSend(
+                    color: 'danger',
+                    message: "Frontend 빌드 실패ㅠ: ${env.JOB_NAME} #${env.BUILD_NUMBER} by ${Author_ID}\n(<${env.BUILD_URL}|Details>)",
+                    endpoint: 'https://meeting.ssafy.com/hooks/31rxdtq1tbr49qz1bxmc4quede',
+                    channel: 'game_jenkins'
+                )
+            }
+        }
+    }
+}

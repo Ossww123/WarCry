@@ -1,0 +1,27 @@
+﻿/WarCry/.idea/
+/.idea/
+/WarCry/.vs/
+/WarCry/[Ll]ibrary/
+/WarCry/[Tt]emp/
+/WarCry/[Oo]bj/
+/WarCry/[Bb]uild/
+/WarCry[Bb]uilds/
+/WarCry/[Ll]ogs/
+/WarCry/[Uu]ser[Ss]ettings/
+# 클론 디렉토리 무시
+*_clone_*/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+.vsconfig

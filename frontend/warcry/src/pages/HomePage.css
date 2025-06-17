@@ -1,0 +1,274 @@
+.home-container {
+  width: 100%;
+  position: relative; /* 추가: 자식 요소에 absolute 위치 지정을 위해 필요 */
+  overflow-x: hidden; /* 추가: 화면 바깥으로 내용이 넘치는 것 방지 */
+}
+
+/* 좌측 캐릭터(바이킹) 스타일 */
+.left-character {
+  position: absolute;
+  left: -10%;
+  top: 150px;
+  z-index: 1;
+  height: 500px;
+  pointer-events: none;
+}
+
+.left-character img {
+  height: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+}
+
+/* 우측 캐릭터(파란 기사) 스타일 */
+.right-character {
+  position: absolute;
+  right: -10%;
+  top: 150px;
+  z-index: 1;
+  height: 500px;
+  pointer-events: none;
+}
+
+.right-character img {
+  height: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+}
+
+/* 부드러운 떠다니는 애니메이션 */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+.left-character {
+  animation: float 6s ease-in-out infinite;
+}
+
+.right-character {
+  animation: float 6s ease-in-out infinite 2s; /* 2초 딜레이로 엇갈리게 움직임 */
+}
+  
+/* 히어로 섹션 */
+.hero-section {
+  height: 600px;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('../assets/Bg1.png'); /* 배경 이미지 추가 필요 */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+/* 로고 스타일 */
+.game-logo {
+  margin-bottom: 20px; /* 로고와 텍스트 사이 간격 */
+}
+
+.game-logo img {
+  width: 300px; /* 로고 크기 조정 */
+  max-width: 100%;
+  height: auto;
+}
+
+/* .hero-content h1 {
+  font-size: 5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #61dafb;
+  text-shadow: 0 0 10px rgba(97, 218, 251, 0.5);
+} */
+
+.hero-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: #1E90FF;
+  color: #f5f5f5;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #4fa8c9;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  display: inline-block;
+  background-color: transparent;
+  color: #1E90FF;
+  padding: 10px 26px;
+  border: 2px solid #1E90FF;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(97, 218, 251, 0.1);
+  transform: translateY(-2px);
+}
+
+/* 특징 섹션 */
+.features-section {
+  padding: 80px 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #61dafb;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* 게임 미리보기 섹션 */
+.game-preview {
+  padding: 80px 0;
+  background-color: #141414;
+}
+
+.preview-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.preview-placeholder {
+  width: 100%;
+  height: 500px;
+  background-color: #1e1e1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #777;
+  font-size: 1.2rem;
+}
+
+/* 기술적 도전 요소 섹션 */
+.technical-highlight {
+  padding: 80px 0;
+}
+
+.tech-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.tech-card {
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 8px;
+  border-left: 4px solid #61dafb;
+}
+
+.tech-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #61dafb;
+}
+
+.tech-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* 반응형 디자인을 위한 미디어 쿼리 */
+@media screen and (max-width: 1400px) {
+  .left-character, .right-character {
+    height: 400px; /* 화면이 작아지면 크기 축소 */
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .left-character, .right-character {
+    height: 350px; /* 중간 크기 화면에서 더 작게 */
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .left-character, .right-character {
+    height: 300px; /* 작은 화면에서도 조금 더 작게 */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .preview-placeholder {
+    height: 300px;
+  }
+  
+  .left-character, .right-character {
+    display: none; /* 모바일 화면에서는 캐릭터 숨기기 */
+  }
+}

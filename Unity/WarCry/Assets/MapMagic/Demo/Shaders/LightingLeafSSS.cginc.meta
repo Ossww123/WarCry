@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 8ac9605f34b10a9488b52e6657467513
+timeCreated: 1507815022
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 165181
+  packageName: MapMagic 2 Objects
+  packageVersion: 2.1.17
+  assetPath: Assets/MapMagic/Demo/Shaders/LightingLeafSSS.cginc
+  uploadId: 683297

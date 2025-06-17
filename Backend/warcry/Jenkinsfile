@@ -1,0 +1,126 @@
+pipeline {
+    agent any
+    environment {
+        DOCKER_IMAGE = credentials('DOCKER_IMAGE')
+        DOCKER_CONTAINER = credentials('DOCKER_CONTAINER')
+        DOCKER_PORT = credentials('DOCKER_PORT')
+        DOCKER_PATH = '/home/ubuntu/warcry-docker'
+        SPRING_PROFILES_ACTIVE = 'prod'
+        DB_PROD_URL = credentials('DB_PROD_URL')
+        DB_PROD_USERNAME = credentials('DB_PROD_USERNAME')
+        DB_PROD_PASSWORD = credentials('DB_PROD_PASSWORD')
+        JWT_SECRET_KEY = credentials('JWT_SECRET_KEY')
+        JAVA_HOME = '/opt/java/openjdk'
+        GRADLE_HOME = '/var/jenkins_home/gradle-8.12.1'
+        PATH = "${JAVA_HOME}/bin:${GRADLE_HOME}/bin:${env.PATH}"
+    }
+
+    tools {
+        jdk 'jdk17'
+        gradle 'Gradle-8.12.1'
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                echo 'Cloning the repository...'
+                git branch: 'backend',
+                    url: 'https://lab.ssafy.com/s12-final/S12P31D104.git',
+                    credentialsId: 'GITLAB_PAT'
+            }
+        }
+        stage('Build Application') {
+            steps {
+                echo 'Building the application with Gradle Wrapper...'
+                dir('warcry') {
+                    sh 'gradle clean build -x test'
+                    sh 'ls -al $(pwd)/build/libs'
+                }
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                echo 'Building the Docker image...'
+                dir('warcry') {
+                    sh 'cp build/libs/WarcryBack-0.0.1-SNAPSHOT.jar .'
+                    sh 'docker build -t ${DOCKER_IMAGE}:latest .'
+                }
+            }
+        }
+        stage('Save and Transfer Docker Image') {
+            steps {
+                echo 'Saving and transferring Docker image to EC2...'
+                sh """
+                docker save ${DOCKER_IMAGE}:latest | gzip > WarcryBack-0.0.1-SNAPSHOT.tar.gz
+                """
+                sshPublisher(publishers: [
+                    sshPublisherDesc(
+                        configName: 'EC2-SERVER',
+                        transfers: [
+                            sshTransfer(
+                                sourceFiles: 'WarcryBack-0.0.1-SNAPSHOT.tar.gz'
+                            )
+                        ]
+                    )
+                ])
+            }
+        }
+        stage('Deploy to EC2') {
+            steps {
+                echo 'Deploying the application on EC2...'
+               sshPublisher(publishers: [
+                           sshPublisherDesc(
+                               configName: 'EC2-SERVER',
+                               transfers: [
+                                   sshTransfer(
+                                       execCommand: """
+                                           mkdir -p ${DOCKER_PATH}
+                                           docker stop ${DOCKER_CONTAINER} || true
+                                           docker rm ${DOCKER_CONTAINER} || true
+                                           docker rmi ${DOCKER_IMAGE}:latest || true
+                                           docker load < ${DOCKER_PATH}/WarcryBack-0.0.1-SNAPSHOT.tar.gz
+
+                                           docker run -d --name ${DOCKER_CONTAINER} \
+                                               --network warcry-docker_app-network \
+                                               -e SPRING_PROFILES_ACTIVE='prod' \
+                                               -p ${DOCKER_PORT}:${DOCKER_PORT} \
+                                               -e SERVER_PORT=${DOCKER_PORT} \
+                                               -e DB_PROD_URL=${DB_PROD_URL} \
+                                               -e DB_PROD_USERNAME=${DB_PROD_USERNAME} \
+                                               -e DB_PROD_PASSWORD=${DB_PROD_PASSWORD} \
+                                               -e JWT_SECRET=${JWT_SECRET_KEY} \
+                                               -e TZ=Asia/Seoul \
+                                               ${DOCKER_IMAGE}:latest
+                                       """.stripIndent()
+                            )
+                        ]
+                    )
+                ])
+            }
+        }
+    }
+     post {
+            success {
+            	script {
+                    def Author_ID = sh(script: "git show -s --pretty=%an", returnStdout: true).trim()
+                    def Author_Name = sh(script: "git show -s --pretty=%ae", returnStdout: true).trim()
+                    mattermostSend (color: 'good',
+                    message: "빌드 성공!: ${env.JOB_NAME} #${env.BUILD_NUMBER} by ${Author_ID}\n(<${env.BUILD_URL}|Details>)",
+                    endpoint: 'https://meeting.ssafy.com/hooks/31rxdtq1tbr49qz1bxmc4quede',
+                    channel: 'game_jenkins'
+                    )
+                }
+            }
+            failure {
+            	script {
+                    def Author_ID = sh(script: "git show -s --pretty=%an", returnStdout: true).trim()
+                    def Author_Name = sh(script: "git show -s --pretty=%ae", returnStdout: true).trim()
+                    mattermostSend (color: 'danger',
+                    message: "빌드 실패ㅠ: ${env.JOB_NAME} #${env.BUILD_NUMBER} by ${Author_ID}\n(<${env.BUILD_URL}|Details>)",
+                    endpoint: 'https://meeting.ssafy.com/hooks/31rxdtq1tbr49qz1bxmc4quede',
+                    channel: 'game_jenkins'
+                    )
+                }
+            }
+        }
+}

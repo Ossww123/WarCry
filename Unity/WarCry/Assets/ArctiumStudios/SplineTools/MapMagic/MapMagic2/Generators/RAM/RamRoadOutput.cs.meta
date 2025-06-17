@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 9f1f23f75d3a4ef9a4690ffb35062e29
+timeCreated: 1641742949
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/MapMagic2/Generators/RAM/RamRoadOutput.cs
+  uploadId: 627855

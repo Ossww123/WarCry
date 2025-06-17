@@ -1,0 +1,36 @@
+/* src/components/profile/PointsGraph.css */
+.points-graph {
+  margin-bottom: 2rem;
+}
+
+.points-graph h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.graph-container {
+  position: relative;
+  height: 300px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.no-data {
+  text-align: center;
+  padding: 5rem 2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .graph-container {
+    height: 250px;
+    padding: 1rem;
+  }
+}

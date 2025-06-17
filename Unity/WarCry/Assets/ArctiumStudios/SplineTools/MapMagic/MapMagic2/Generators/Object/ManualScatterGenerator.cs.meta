@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 0f9b3e75a9f940229ad2bf166b7ebe78
+timeCreated: 1587669334
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/MapMagic2/Generators/Object/ManualScatterGenerator.cs
+  uploadId: 627855

@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 8231ec0c81c1449ab2a52b4df1041968
+timeCreated: 1586699629
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/MapMagic2/Generators/Map/PathGenerator.cs
+  uploadId: 627855

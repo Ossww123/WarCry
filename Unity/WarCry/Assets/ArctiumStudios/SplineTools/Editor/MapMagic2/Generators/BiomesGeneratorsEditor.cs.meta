@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 80fc869decae4c94b7d710d67d9ab613
+timeCreated: 1643913271
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/Editor/MapMagic2/Generators/BiomesGeneratorsEditor.cs
+  uploadId: 627855

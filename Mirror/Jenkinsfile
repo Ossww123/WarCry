@@ -1,0 +1,90 @@
+// Jenkinsfile
+pipeline {
+  agent any
+
+  environment {
+    GIT_CREDENTIALS = 'GITLAB_PAT'
+    GIT_BRANCH      = 'mirror'
+    GIT_URL         = 'https://lab.ssafy.com/s12-final/S12P31D104.git'
+  }
+
+  stages {
+    stage('Checkout mirror branch') {
+      steps {
+        echo "🎯 '${GIT_BRANCH}' 브랜치 클론 중..."
+        checkout([
+          $class: 'GitSCM',
+          branches: [[ name: "refs/heads/${GIT_BRANCH}" ]],
+          extensions: [
+            [ $class: 'GitLFSPull' ],
+            [ $class: 'CloneOption', noTags: false, shallow: false, timeout: 20 ]
+          ],
+          userRemoteConfigs: [[
+            url:           "${GIT_URL}",
+            credentialsId: "${GIT_CREDENTIALS}"
+          ]]
+        ])
+      }
+    }
+
+    stage('Build & Push Images') {
+      steps {
+        echo '🛠️  Docker Compose 빌드 시작…'
+        sh 'docker version'
+        sh 'docker compose version'
+        sh 'docker compose build --parallel'
+        // 필요하다면 레지스트리에 푸시
+        // sh 'docker compose push'
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        echo '🚀  Docker Compose 배포 중…'
+        sh '''
+          docker compose down || true
+          docker compose up -d
+        '''
+      }
+    }
+
+    stage('Verify') {
+      steps {
+        echo '🔍  현재 실행 중인 컨테이너:'
+        sh 'docker ps --format "table {{.Names}}\\t{{.Ports}}"'
+      }
+    }
+  }
+
+post {
+        success {
+            script {
+                def Author_ID = sh(
+                    script: "git show -s --pretty=%an",
+                    returnStdout: true
+                ).trim()
+                mattermostSend(
+                    color: 'good',
+                    message: "Mirror Server 빌드 성공!: ${env.JOB_NAME} #${env.BUILD_NUMBER} by ${Author_ID}\n(<${env.BUILD_URL}|Details>)",
+                    endpoint: 'https://meeting.ssafy.com/hooks/31rxdtq1tbr49qz1bxmc4quede',
+                    channel: 'game_jenkins'
+                )
+            }
+        }
+        failure {
+            script {
+                def Author_ID = sh(
+                    script: "git show -s --pretty=%an",
+                    returnStdout: true
+                ).trim()
+                mattermostSend(
+                    color: 'danger',
+                    message: "Mirror Server 빌드 실패ㅠ: ${env.JOB_NAME} #${env.BUILD_NUMBER} by ${Author_ID}\n(<${env.BUILD_URL}|Details>)",
+                    endpoint: 'https://meeting.ssafy.com/hooks/31rxdtq1tbr49qz1bxmc4quede',
+                    channel: 'game_jenkins'
+                )
+            }
+        }
+    }
+
+}

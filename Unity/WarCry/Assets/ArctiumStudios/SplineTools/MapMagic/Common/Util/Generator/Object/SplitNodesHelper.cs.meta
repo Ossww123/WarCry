@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 0a914b0048f34270a398cfd9f5070311
+timeCreated: 1647163679
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/Common/Util/Generator/Object/SplitNodesHelper.cs
+  uploadId: 627855

@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: c7cfcf2372614c7c997b05eb32cb4f49
+timeCreated: 1645645635
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/MapMagic2/Generators/Map/StampFlattenV2Generator.cs
+  uploadId: 627855

@@ -1,0 +1,157 @@
+/* src/pages/TierDetailPage.css */
+.tier-detail-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  --tier-color: #CCCCCC; /* 기본값, JS에서 변경됨 */
+}
+
+.tier-header {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.tier-header h1 {
+  color: var(--tier-color);
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.tier-info {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.1rem;
+  color: #ccc;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* 임시 placeholder 영역 스타일 */
+.tier-leaderboard-placeholder,
+.pagination-placeholder {
+  border: 2px dashed #555;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 로딩 및 에러 상태 스타일 */
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #ff4500;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .tier-detail-page {
+    padding: 1rem;
+  }
+  
+  .tier-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+}
+
+/* src/pages/TierDetailPage.css에 추가 */
+
+.table-container {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.tier-leaderboard {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tier-leaderboard th,
+.tier-leaderboard td {
+  padding: 1rem;
+  text-align: center;
+}
+
+.tier-leaderboard th {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #f8f8f8;
+  font-weight: 600;
+}
+
+.tier-leaderboard tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tier-leaderboard tr:last-child {
+  border-bottom: none;
+}
+
+.tier-leaderboard tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+}
+
+.rank-badge.top-1 {
+  background-color: #FFD700;
+  color: #000;
+}
+
+.rank-badge.top-2 {
+  background-color: #E5E4E2;
+  color: #000;
+}
+
+.rank-badge.top-3 {
+  background-color: #CD7F32;
+  color: #000;
+}
+
+.player-name {
+  color: #f8f8f8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.player-name:hover {
+  text-decoration: underline;
+}
+
+.no-data {
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}

@@ -1,0 +1,112 @@
+/* src/pages/ProfileDetailPage.css */
+.profile-detail-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profile-header {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  --tier-color: #CCCCCC; /* 기본값, JS에서 변경됨 */
+}
+
+.back-link {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.profile-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--tier-color);
+}
+
+.tier-badge {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 2px solid var(--tier-color);
+}
+
+.tier-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--tier-color);
+}
+
+.tier-points {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.rank-info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+/* 임시 placeholder 영역 스타일 */
+.stats-summary-placeholder,
+.points-graph-placeholder,
+.match-history-placeholder {
+  border: 2px dashed #555;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 로딩 및 에러 상태 스타일 */
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #ff4500;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .profile-detail-page {
+    padding: 1rem;
+  }
+  
+  .rank-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .profile-header h1 {
+    font-size: 2rem;
+  }
+}
+
+.profile-detail-page.loading {
+  opacity: 0.7;
+}
+
+.error {
+  text-align: center;
+  padding: 2rem;
+  color: #ff4500;
+  font-size: 1.2rem;
+}

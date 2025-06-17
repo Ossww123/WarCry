@@ -1,0 +1,53 @@
+server:
+  forward-headers-strategy: framework
+
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    url:               ${DB_PROD_URL}
+    username:          ${DB_PROD_USERNAME}
+    password:          ${DB_PROD_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      leak-detection-threshold: 2000
+      minimum-idle:             5
+      maximum-pool-size:       20
+      idle-timeout:         300000
+      max-lifetime:       1800000
+      connection-timeout:    30000
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect:    org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+logging:
+  level:
+    root:                           INFO
+    org.springframework.web:        DEBUG
+    org.springframework.web.socket: TRACE
+    org.springframework.messaging:   TRACE
+    org.hibernate.SQL:              debug
+    org.hibernate.orm.jdbc.bind:    trace
+    com.game.warcry:                DEBUG
+    com.zaxxer.hikari:              DEBUG
+    com.zaxxer.hikari.pool.HikariPool: DEBUG
+    com.zaxxer.hikari.HikariDataSource: DEBUG
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration:
+    access:  86400000
+    refresh: 604800000
+
+springdoc:
+  swagger-ui:
+    tags-sorter:       alpha
+    operations-sorter: alpha
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json

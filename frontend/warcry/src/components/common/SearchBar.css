@@ -1,0 +1,55 @@
+/* src/components/common/SearchBar.css */
+.search-bar {
+  margin-bottom: 2rem;
+}
+
+.search-bar form {
+  display: flex;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f8f8f8;
+  border-radius: 4px 0 0 4px;
+  font-size: 1rem;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.search-bar button {
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(255, 69, 0, 0.8);
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-bar button:hover {
+  background-color: rgba(255, 69, 0, 1);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .search-bar form {
+    max-width: 100%;
+  }
+  
+  .search-bar input {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .search-bar button {
+    padding: 0.6rem 1rem;
+  }
+}

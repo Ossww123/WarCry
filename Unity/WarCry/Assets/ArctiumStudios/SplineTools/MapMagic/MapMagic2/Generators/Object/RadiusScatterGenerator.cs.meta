@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 9e887f0143524811ab1adb22d0ecbd34
+timeCreated: 1587669334
+AssetOrigin:
+  serializedVersion: 1
+  productId: 142168
+  packageName: Spline Tools for MapMagic & MapMagic 2
+  packageVersion: 3.2.2
+  assetPath: Assets/ArctiumStudios/SplineTools/MapMagic/MapMagic2/Generators/Object/RadiusScatterGenerator.cs
+  uploadId: 627855

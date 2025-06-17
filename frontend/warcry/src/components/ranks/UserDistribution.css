@@ -1,0 +1,51 @@
+/* src/components/ranks/UserDistribution.css */
+.user-distribution {
+  margin-bottom: 2rem;
+}
+
+.user-distribution h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.chart-container {
+  position: relative;
+  height: 300px;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.total-users {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.total-count {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f8f8f8;
+}
+
+.total-label {
+  display: block;
+  font-size: 1rem;
+  color: #aaa;
+}
+
+.no-data {
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .chart-container {
+    height: 250px;
+  }
+}

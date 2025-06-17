@@ -1,0 +1,44 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    url:               ${DB_URL}
+    username:          ${DB_USERNAME}
+    password:          ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect:    org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+logging:
+  level:
+    root:                   INFO
+    org.springframework.web: DEBUG
+    org.hibernate.SQL:       debug
+    org.hibernate.orm.jdbc.bind: trace
+    org.springframework.web.socket: DEBUG
+    org.springframework.messaging:   DEBUG
+    com.game.warcry.websocket:     DEBUG
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration:
+    access:  86400000
+    refresh: 604800000
+
+url:
+  https: https_address
+  http:  http_address
+
+springdoc:
+  swagger-ui:
+    tags-sorter:       alpha
+    operations-sorter: alpha
+  # packages-to-scan 은 기본 스캔에 맡겨도 됩니다.
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
